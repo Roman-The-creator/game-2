@@ -1,0 +1,4 @@
+C:\Users\sukhi\source\repos\my-game\obj\Debug\my-game.csproj.AssemblyReference.cache
+C:\Users\sukhi\source\repos\my-game\obj\Debug\my_game.Forms.MainForm.resources
+C:\Users\sukhi\source\repos\my-game\obj\Debug\my-game.csproj.GenerateResource.cache
+C:\Users\sukhi\source\repos\my-game\obj\Debug\my-game.csproj.CoreCompileInputs.cache
