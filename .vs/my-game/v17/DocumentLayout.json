@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\sukhi\\source\\repos\\my-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\my-game\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\source\\repos\\my-game\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\source\\repos\\my-game\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\source\\repos\\my-game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\my-game\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\my-game\\models\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:models\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\source\\repos\\my-game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\my-game\\models\\reactionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,32 +42,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.Designer.cs",
+              "RelativeToolTip": "Forms\\MainForm.Designer.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T11:42:39.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
               "ToolTip": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.cs",
               "RelativeToolTip": "Forms\\MainForm.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAADgv0YAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T09:35:38.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\my-game\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T09:19:59.831Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReactorEngine.cs",
               "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Engine\\ReactorEngine.cs",
               "RelativeDocumentMoniker": "Engine\\ReactorEngine.cs",
@@ -75,8 +76,7 @@
               "RelativeToolTip": "Engine\\ReactorEngine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T09:18:51.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T09:18:51.211Z"
             },
             {
               "$type": "Document",
@@ -92,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Models\\GameState.cs",
               "RelativeDocumentMoniker": "Models\\GameState.cs",
@@ -100,18 +100,17 @@
               "RelativeToolTip": "Models\\GameState.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T09:17:03.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T09:17:03.197Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\my-game\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\sukhi\\source\\repos\\my-game\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T09:12:16.471Z",
               "EditorCaption": ""
