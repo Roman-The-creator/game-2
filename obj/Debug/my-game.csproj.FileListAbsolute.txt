@@ -7,3 +7,12 @@ C:\Users\sukhi\source\repos\my-game\bin\Debug\my-game.exe
 C:\Users\sukhi\source\repos\my-game\bin\Debug\my-game.pdb
 C:\Users\sukhi\source\repos\my-game\obj\Debug\my-game.exe
 C:\Users\sukhi\source\repos\my-game\obj\Debug\my-game.pdb
+C:\й\bin\Debug\my-game.exe.config
+C:\й\bin\Debug\my-game.exe
+C:\й\bin\Debug\my-game.pdb
+C:\й\obj\Debug\my-game.csproj.AssemblyReference.cache
+C:\й\obj\Debug\my_game.Forms.MainForm.resources
+C:\й\obj\Debug\my-game.csproj.GenerateResource.cache
+C:\й\obj\Debug\my-game.csproj.CoreCompileInputs.cache
+C:\й\obj\Debug\my-game.exe
+C:\й\obj\Debug\my-game.pdb
