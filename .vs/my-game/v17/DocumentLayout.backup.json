@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\\u0439\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\\u0439\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\\u0439\\resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\\u0439\\resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -62,8 +62,7 @@
               "ToolTip": "C:\\\u0439\\Forms\\MainForm.cs [Design]",
               "RelativeToolTip": "Forms\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T12:04:31.088Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-21T12:04:31.088Z"
             }
           ]
         }
