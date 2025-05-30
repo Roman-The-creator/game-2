@@ -13,6 +13,10 @@ namespace my_game.Models
         public double BonusMultiplier { get; set; } = 1.0;
         public bool OverheatProtection { get; set; } = false;
         public string ActiveEvent { get; set; } = "";
-    }
 
+        // Новые свойства для статистики
+        public int TotalLaunches { get; set; } = 0;
+        public int TotalOverheats { get; set; } = 0;
+        public int WinLoss { get; set; } = 0;
+    }
 }

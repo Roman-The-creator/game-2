@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using my_game.Models;
 using my_game.Engine;
+using my_game; 
 
 namespace my_game.Forms
 {
@@ -23,13 +24,11 @@ namespace my_game.Forms
             _state = new GameState();
             _engine = new ReactorEngine();
 
-            // Таймер мигания при перегреве
             _blinkTimer = new Timer();
             _blinkTimer.Interval = 500;
             _blinkTimer.Tick += BlinkTimer_Tick;
             _blinkTimer.Start();
 
-            // Таймер обратного отсчета игры
             _gameTimer = new Timer();
             _gameTimer.Interval = 1000;
             _gameTimer.Tick += GameTimer_Tick;
@@ -38,7 +37,6 @@ namespace my_game.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Настройка параметров элементов управления
             trackEnergy.Minimum = 0;
             trackEnergy.Maximum = 100;
             trackEnergy.Value = 50;
@@ -133,7 +131,21 @@ namespace my_game.Forms
 
                 btnRunReaction.Enabled = false;
                 btnCoolDown.Enabled = false;
+
+                ShowResult(); // Показать результат
             }
+        }
+
+        // Добавлен новый метод
+        private void ShowResult()
+        {
+            int balance = _state.Balance;
+            int launches = _state.TotalLaunches;
+            int overheats = _state.TotalOverheats;
+            int winLoss = _state.WinLoss;
+
+            ResultForm resultForm = new ResultForm(balance, launches, overheats, winLoss);
+            resultForm.ShowDialog();
         }
     }
 }

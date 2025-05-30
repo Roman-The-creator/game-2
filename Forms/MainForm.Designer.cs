@@ -42,7 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVoltage)).BeginInit();
             this.SuspendLayout();
-            
             // 
             // btnCoolDown
             // 
@@ -130,7 +129,6 @@
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.labelBalance);
             this.Controls.Add(this.btnCoolDown);
-            
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
