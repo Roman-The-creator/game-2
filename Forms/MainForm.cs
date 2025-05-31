@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using my_game.Models;
 using my_game.Engine;
-using my_game; 
+using my_game;
 
 namespace my_game.Forms
 {
@@ -63,7 +63,11 @@ namespace my_game.Forms
             UpdateUI();
         }
 
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 5af094f (1)
 
         int winStreak = 0;
         int launchesWithoutOverheat = 0;
@@ -231,7 +235,11 @@ namespace my_game.Forms
                 if (winStreak == 3)
                 {
                     MessageBox.Show("🏆 Достижение: 3 победы подряд! Следующий выигрыш +1 фишка");
+<<<<<<< HEAD
                     _state.BonusFlat += 1; 
+=======
+                    _state.BonusFlat += 1;
+>>>>>>> 5af094f (1)
                 }
 
                 if (launchesWithoutOverheat == 5 && !passiveCoolingUnlocked)
@@ -299,7 +307,11 @@ namespace my_game.Forms
                 btnRunReaction.Enabled = false;
                 btnCoolDown.Enabled = false;
 
+<<<<<<< HEAD
                 ShowResult(); 
+=======
+                ShowResult();
+>>>>>>> 5af094f (1)
             }
         }
 
@@ -335,7 +347,11 @@ namespace my_game.Forms
 
         private void cooldownDisableTimer_Tick_1(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             btnCoolDown.Enabled = true;               
+=======
+            btnCoolDown.Enabled = true;
+>>>>>>> 5af094f (1)
             cooldownDisableTimer.Stop();
         }
 

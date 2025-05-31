@@ -179,4 +179,7 @@
         private System.Windows.Forms.Timer cooldownDisableTimer;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5af094f (1)
