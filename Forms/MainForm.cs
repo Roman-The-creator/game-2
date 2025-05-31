@@ -8,6 +8,10 @@ namespace my_game.Forms
 {
     public partial class MainForm : Form
     {
+        Random _random = new Random();
+        int temperature = 0; // Температура реактора, от 0 до 100
+        bool doubleWinNextLaunch = false;
+        int secondsUntilNextEvent = 0;
         private GameState _state;
         private ReactorEngine _engine;
 
@@ -20,7 +24,7 @@ namespace my_game.Forms
         public MainForm()
         {
             InitializeComponent();
-
+            secondsUntilNextEvent = _random.Next(30, 61); // от 30 до 60 секунд
             _state = new GameState();
             _engine = new ReactorEngine();
 
@@ -34,7 +38,51 @@ namespace my_game.Forms
             _gameTimer.Tick += GameTimer_Tick;
             _gameTimer.Start();
         }
+        private void DisableCoolingTemporarily()
+        {
+            btnCoolDown.Enabled = false;
+            cooldownDisableTimer.Start();
+        }
 
+        private void cooldownDisableTimer_Tick(object sender, EventArgs e)
+        {
+            btnCoolDown.Enabled = true;
+            cooldownDisableTimer.Stop();
+        }
+        private void TriggerRandomEvent()
+        {
+            int eventType = _random.Next(0, 4);
+
+            switch (eventType)
+            {
+                case 0:
+                    temperature += 20;
+                    MessageBox.Show("⚠️ Внезапный перегрев! Температура +20%", "Событие");
+                    break;
+                case 1:
+                    temperature = Math.Max(0, temperature - 20);
+                    MessageBox.Show("❄️ Система охладилась автоматически! -20% температуры", "Событие");
+                    break;
+                case 2:
+                    doubleWinNextLaunch = true;
+                    MessageBox.Show("🎁 Следующий запуск принесёт удвоенный выигрыш!", "Событие");
+                    break;
+                case 3:
+                    btnCoolDown.Enabled = false;
+                    MessageBox.Show("🧊 Кнопка охлаждения отключена на 30 секунд!", "Событие");
+
+                    Timer cooldownTimer = new Timer();
+                    cooldownTimer.Interval = 30000;
+                    cooldownTimer.Tick += (s, e) =>
+                    {
+                        btnCoolDown.Enabled = true;
+                        cooldownTimer.Stop();
+                        cooldownTimer.Dispose();
+                    };
+                    cooldownTimer.Start();
+                    break;
+            }
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             trackEnergy.Minimum = 0;
@@ -146,6 +194,23 @@ namespace my_game.Forms
 
             ResultForm resultForm = new ResultForm(balance, launches, overheats, winLoss);
             resultForm.ShowDialog();
+        }
+
+        private void eventTimer_Tick(object sender, EventArgs e)
+        {
+            secondsUntilNextEvent--;
+
+            if (secondsUntilNextEvent <= 0)
+            {
+                TriggerRandomEvent();
+                secondsUntilNextEvent = _random.Next(30, 61);
+            }
+        }
+
+        private void cooldownDisableTimer_Tick_1(object sender, EventArgs e)
+        {
+            btnCoolDown.Enabled = true;               // Включаем кнопку обратно
+            cooldownDisableTimer.Stop();
         }
     }
 }
