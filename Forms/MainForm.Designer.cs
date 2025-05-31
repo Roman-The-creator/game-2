@@ -29,6 +29,7 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.eventTimer = new System.Windows.Forms.Timer(this.components);
             this.cooldownDisableTimer = new System.Windows.Forms.Timer(this.components);
+            this.listActiveEffects = new System.Windows.Forms.ListBox();
 
             ((System.ComponentModel.ISupportInitialize)(this.numericStake)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEnergy)).BeginInit();
@@ -115,6 +116,14 @@
             this.btnLaunch.UseVisualStyleBackColor = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
 
+            // listActiveEffects
+            this.listActiveEffects.FormattingEnabled = true;
+            this.listActiveEffects.ItemHeight = 16;
+            this.listActiveEffects.Location = new System.Drawing.Point(850, 400);
+            this.listActiveEffects.Name = "listActiveEffects";
+            this.listActiveEffects.Size = new System.Drawing.Size(200, 100);
+            this.listActiveEffects.TabIndex = 15;
+
             // eventTimer
             this.eventTimer.Enabled = true;
             this.eventTimer.Interval = 1000;
@@ -128,6 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 670);
+            this.Controls.Add(this.listActiveEffects);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.labelTemperature);
             this.Controls.Add(this.btnRunReaction);
@@ -164,7 +174,9 @@
         private System.Windows.Forms.ProgressBar progressTemperature;
         private System.Windows.Forms.Button btnRunReaction;
         private System.Windows.Forms.Button btnLaunch;
+        private System.Windows.Forms.ListBox listActiveEffects;
         private System.Windows.Forms.Timer eventTimer;
         private System.Windows.Forms.Timer cooldownDisableTimer;
     }
 }
+

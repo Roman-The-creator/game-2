@@ -8,6 +8,11 @@ namespace my_game.Forms
 {
     public partial class MainForm : Form
     {
+        private Timer passiveCoolingTimer;
+        private Timer coolingEffectTimer;
+        private int secondsWithoutOverheat = 0;
+        private bool passiveCoolingActive = false;
+
         private void btnLaunch_Click(object sender, EventArgs e)
         {
             int energy = trackEnergy.Value;
@@ -20,8 +25,14 @@ namespace my_game.Forms
             {
                 _state.OverheatCount++;
                 winStreak = 0;
+                
+
                 MessageBox.Show("🔥 Перегрев! Реактор отключён.");
                 UpdateUI();
+                secondsWithoutOverheat = 0;
+                passiveCoolingActive = false;
+                coolingEffectTimer.Stop();
+
                 return;
             }
 
@@ -73,6 +84,15 @@ namespace my_game.Forms
         public MainForm()
         {
             InitializeComponent();
+            passiveCoolingTimer = new Timer();
+            passiveCoolingTimer.Interval = 1000;
+            passiveCoolingTimer.Tick += PassiveCoolingTimer_Tick;
+            passiveCoolingTimer.Start();
+
+            coolingEffectTimer = new Timer();
+            coolingEffectTimer.Interval = 3000;
+            coolingEffectTimer.Tick += CoolingEffectTimer_Tick;
+
             secondsUntilNextEvent = _random.Next(30, 61); // от 30 до 60 секунд
             _state = new GameState();
             _engine = new ReactorEngine();
@@ -180,6 +200,14 @@ namespace my_game.Forms
                 progressTemperature.ForeColor = System.Drawing.Color.Orange;
             else
                 progressTemperature.ForeColor = System.Drawing.Color.Red;
+            listActiveEffects.Items.Clear();
+
+            if (doubleWinNextLaunch)
+                listActiveEffects.Items.Add("×2 следующий выигрыш");
+
+            if (passiveCoolingActive)
+                listActiveEffects.Items.Add("Пассивное охлаждение");
+
         }
 
 
@@ -305,6 +333,30 @@ namespace my_game.Forms
             btnCoolDown.Enabled = true;               
             cooldownDisableTimer.Stop();
         }
+
+        private void PassiveCoolingTimer_Tick(object sender, EventArgs e)
+        {
+            if (!passiveCoolingActive)
+            {
+                secondsWithoutOverheat++;
+                if (secondsWithoutOverheat >= 120)
+                {
+                    passiveCoolingActive = true;
+                    coolingEffectTimer.Start();
+                    MessageBox.Show("❄️ Бонус: Пассивное охлаждение активировано!");
+                }
+            }
+        }
+
+        private void CoolingEffectTimer_Tick(object sender, EventArgs e)
+        {
+            if (temperature > 0)
+            {
+                temperature--;
+                UpdateUI();
+            }
+        }
+
     }
 }
 
