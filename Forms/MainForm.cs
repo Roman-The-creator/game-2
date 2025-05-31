@@ -25,7 +25,8 @@ namespace my_game.Forms
             {
                 _state.OverheatCount++;
                 winStreak = 0;
-                
+
+                isOverheated = true;
 
                 MessageBox.Show("🔥 Перегрев! Реактор отключён.");
                 UpdateUI();
@@ -70,6 +71,8 @@ namespace my_game.Forms
 
         Random _random = new Random();
         int temperature = 0; // Температура реактора, от 0 до 100
+        private bool isOverheated = false;
+
         bool doubleWinNextLaunch = false;
         int secondsUntilNextEvent = 0;
         private GameState _state;
@@ -313,6 +316,8 @@ namespace my_game.Forms
 
         private void eventTimer_Tick(object sender, EventArgs e)
         {
+
+            if (isOverheated) return;
             secondsUntilNextEvent--;
 
             if (secondsUntilNextEvent <= 0)
