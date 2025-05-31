@@ -8,6 +8,55 @@ namespace my_game.Forms
 {
     public partial class MainForm : Form
     {
+        private void btnLaunch_Click(object sender, EventArgs e)
+        {
+            int energy = trackEnergy.Value;
+            int voltage = trackVoltage.Value;
+
+            int heatGenerated = (energy + voltage) / 2;
+            temperature += heatGenerated;
+
+            if (temperature > 100)
+            {
+                _state.OverheatCount++;
+                winStreak = 0;
+                MessageBox.Show("🔥 Перегрев! Реактор отключён.");
+                UpdateUI();
+                return;
+            }
+
+            // Вычисляем выигрыш
+            int reward = (energy * voltage) / 10;
+
+            if (doubleWinNextLaunch)
+            {
+                reward *= 2;
+                doubleWinNextLaunch = false;
+            }
+
+            reward += _state.BonusFlat;
+            _state.BonusFlat = 0;
+
+            _state.Balance += reward;
+            _state.TotalWin += reward;
+            _state.LaunchCount++;
+            winStreak++;
+
+            if (winStreak == 3)
+            {
+                MessageBox.Show("🏆 Достижение: 3 победы подряд! Следующий выигрыш +1 фишка");
+                _state.BonusFlat += 1;
+            }
+
+            UpdateUI();
+        }
+
+        
+
+        int winStreak = 0;
+        int launchesWithoutOverheat = 0;
+        bool passiveCoolingUnlocked = false;
+
         Random _random = new Random();
         int temperature = 0; // Температура реактора, от 0 до 100
         bool doubleWinNextLaunch = false;
@@ -110,17 +159,29 @@ namespace my_game.Forms
         private void UpdateUI()
         {
             labelBalance.Text = $"Баланс: {_state.Balance} фишек";
-            progressTemperature.Value = Math.Min(progressTemperature.Maximum, _state.Temperature);
+            progressTemperature.Value = Math.Min(progressTemperature.Maximum, temperature);
+            labelTemperature.Text = $"Температура: {temperature}";
 
-            if (_state.Temperature >= 90)
+            if (temperature >= 90)
             {
-                labelResult.Text = "⚠ Реактор перегревается!";
+                labelResult.Text = "⚠️ Реактор перегревается!";
+                labelResult.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
+                labelResult.Text = "";
                 labelResult.ForeColor = System.Drawing.Color.Black;
             }
+
+            // Цветовая индикация температуры
+            if (temperature < 40)
+                progressTemperature.ForeColor = System.Drawing.Color.Green;
+            else if (temperature < 80)
+                progressTemperature.ForeColor = System.Drawing.Color.Orange;
+            else
+                progressTemperature.ForeColor = System.Drawing.Color.Red;
         }
+
 
         private void btnRunReaction_Click(object sender, EventArgs e)
         {
@@ -130,6 +191,33 @@ namespace my_game.Forms
             int voltage = trackVoltage.Value;
 
             var result = _engine.RunReaction(_state, stake, energy, speed, voltage);
+
+            if (result.IsWin)
+            {
+                winStreak++;
+                launchesWithoutOverheat++;
+
+                if (winStreak == 3)
+                {
+                    MessageBox.Show("🏆 Достижение: 3 победы подряд! Следующий выигрыш +1 фишка");
+                    _state.BonusFlat += 1; 
+                }
+
+                if (launchesWithoutOverheat == 5 && !passiveCoolingUnlocked)
+                {
+                    MessageBox.Show("❄ Достижение: 5 запусков без перегрева! Активировано пассивное охлаждение.");
+                    passiveCoolingUnlocked = true;
+                }
+            }
+            else
+            {
+                winStreak = 0;
+            }
+
+            if (result.IsOverheat)
+            {
+                launchesWithoutOverheat = 0;
+            }
 
             labelResult.Text = result.Message;
             UpdateUI();
@@ -180,11 +268,10 @@ namespace my_game.Forms
                 btnRunReaction.Enabled = false;
                 btnCoolDown.Enabled = false;
 
-                ShowResult(); // Показать результат
+                ShowResult(); 
             }
         }
 
-        // Добавлен новый метод
         private void ShowResult()
         {
             int balance = _state.Balance;
@@ -205,11 +292,17 @@ namespace my_game.Forms
                 TriggerRandomEvent();
                 secondsUntilNextEvent = _random.Next(30, 61);
             }
+
+            if (passiveCoolingUnlocked && temperature > 0)
+            {
+                temperature = Math.Max(0, temperature - 1);
+            }
+
         }
 
         private void cooldownDisableTimer_Tick_1(object sender, EventArgs e)
         {
-            btnCoolDown.Enabled = true;               // Включаем кнопку обратно
+            btnCoolDown.Enabled = true;               
             cooldownDisableTimer.Stop();
         }
     }
