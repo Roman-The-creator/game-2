@@ -1,21 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\",
+  "WorkspaceRootPath": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|c:\\users\\sukhi\\onedrive\\desktop\\c#\\jdj\\my-game\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\models\\reactionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:models\\reactionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\forms\\resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sukhi\\source\\repos\\B-a11yt67689\\My-game\\resultform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\GameState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:Models\\GameState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:Forms\\ResultForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:Forms\\MainForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:Forms\\ResultForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E10DEAF8-0114-4CB2-B611-FC59C5B8F307}|my-game.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,26 +57,86 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReactionResult.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\ReactionResult.cs",
+              "RelativeDocumentMoniker": "Models\\ReactionResult.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\ReactionResult.cs",
+              "RelativeToolTip": "Models\\ReactionResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:58:10.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\Program.cs",
+              "RelativeDocumentMoniker": "Models\\Program.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\Program.cs",
+              "RelativeToolTip": "Models\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:57:59.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameState.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\GameState.cs",
+              "RelativeDocumentMoniker": "Models\\GameState.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Models\\GameState.cs",
+              "RelativeToolTip": "Models\\GameState.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:57:37.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResultForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\ResultForm.Designer.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.Designer.cs",
+              "RelativeToolTip": "Forms\\ResultForm.Designer.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:57:33.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.Designer.cs",
+              "RelativeToolTip": "Forms\\MainForm.Designer.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAIBZwLkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:56:59.693Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\MainForm.cs*",
-              "RelativeToolTip": "Forms\\MainForm.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Forms\\MainForm.cs",
+              "ViewState": "AgIAAGgBAAAAAAAAAAAuwF4BAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T07:33:46.169Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ResultForm.cs",
-              "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\ResultForm.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.cs",
               "RelativeDocumentMoniker": "Forms\\ResultForm.cs",
-              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\ResultForm.cs",
+              "ToolTip": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\ResultForm.cs",
               "RelativeToolTip": "Forms\\ResultForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T12:42:15.347Z"
             },
@@ -65,23 +145,22 @@
               "DocumentIndex": 3,
               "Title": "ResultForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\B-a11yt67689\\My-game\\ResultForm.cs",
-              "RelativeDocumentMoniker": "..\\B-a11yt67689\\My-game\\ResultForm.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\source\\repos\\B-a11yt67689\\My-game\\ResultForm.cs",
               "ToolTip": "C:\\Users\\sukhi\\source\\repos\\B-a11yt67689\\My-game\\ResultForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "..\\B-a11yt67689\\My-game\\ResultForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\source\\repos\\B-a11yt67689\\My-game\\ResultForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T12:12:35.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\sukhi\\OneDrive\\Desktop\\C#\\jdj\\My-game\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\\u0438\u0433\u0440\u0430\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
-              "RelativeToolTip": "Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "ToolTip": "C:\\Users\\sukhi\\source\\repos\\B-a11yt67689\\My-game\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\source\\repos\\B-a11yt67689\\My-game\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T12:04:31.088Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-05-21T12:04:31.088Z"
             }
           ]
         }

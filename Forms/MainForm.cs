@@ -347,11 +347,8 @@ namespace my_game.Forms
 
         private void cooldownDisableTimer_Tick_1(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            btnCoolDown.Enabled = true;               
-=======
             btnCoolDown.Enabled = true;
->>>>>>> 5af094f (1)
+            cooldownDisableTimer.Stop();
             cooldownDisableTimer.Stop();
         }
 
