@@ -8,6 +8,13 @@ namespace my_game.Models
 {
     public class GameState
     {
+        public int OverheatCount { get; set; } = 0;
+        public int TotalWin { get; set; } = 0;
+        public int TotalLoss { get; set; } = 0;
+        public int LaunchCount { get; set; } = 0;
+
+        public int BonusFlat { get; set; } = 0;
+
         public int Balance { get; set; } = 100;
         public int Temperature { get; set; } = 0;
         public double BonusMultiplier { get; set; } = 1.0;

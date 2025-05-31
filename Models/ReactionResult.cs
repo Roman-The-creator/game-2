@@ -8,10 +8,13 @@ namespace my_game.Models
 {
     public class ReactionResult
     {
-        public string Outcome { get; set; } 
+        public string Outcome { get; set; }
         public double Winnings { get; set; }
         public int NewTemperature { get; set; }
         public string Message { get; set; }
+        public bool IsWin { get; set; }
+        public bool IsOverheat { get; set; }
+
 
         public ReactionResult(string outcome, double winnings, int newTemp, string message)
         {
