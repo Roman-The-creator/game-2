@@ -25,5 +25,7 @@ namespace my_game.Models
         public int TotalLaunches { get; set; } = 0;
         public int TotalOverheats { get; set; } = 0;
         public int WinLoss { get; set; } = 0;
+        public int CurrentEnergy { get; set; }
+
     }
 }

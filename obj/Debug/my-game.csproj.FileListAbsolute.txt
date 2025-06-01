@@ -46,3 +46,13 @@ C:\Users\sukhi\source\repos\игра\bin\Debug\my-game.exe
 C:\Users\sukhi\source\repos\игра\bin\Debug\my-game.pdb
 C:\Users\sukhi\source\repos\игра\obj\Debug\my-game.exe
 C:\Users\sukhi\source\repos\игра\obj\Debug\my-game.pdb
+D:\myyy-game\obj\Debug\my-game.csproj.AssemblyReference.cache
+D:\myyy-game\obj\Debug\my_game.Forms.MainForm.resources
+D:\myyy-game\obj\Debug\my_game.ResultForm.resources
+D:\myyy-game\obj\Debug\my-game.csproj.GenerateResource.cache
+D:\myyy-game\obj\Debug\my-game.csproj.CoreCompileInputs.cache
+D:\myyy-game\obj\Debug\my-game.exe
+D:\myyy-game\obj\Debug\my-game.pdb
+D:\myyy-game\bin\Debug\my-game.exe.config
+D:\myyy-game\bin\Debug\my-game.exe
+D:\myyy-game\bin\Debug\my-game.pdb
