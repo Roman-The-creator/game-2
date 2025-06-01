@@ -26,6 +26,11 @@ namespace my_game.Models
         public int TotalOverheats { get; set; } = 0;
         public int WinLoss { get; set; } = 0;
         public int CurrentEnergy { get; set; }
+        // ✅ Новые свойства для механики "3 победы подряд"
+        public int ConsecutiveWins { get; set; } = 0;              // Победы подряд
+        public bool DoubleWinNextLaunch { get; set; } = false;     // Активирован ли бонус
+        public bool PassiveCoolingActive { get; set; } = false;
+
 
     }
 }

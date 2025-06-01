@@ -30,6 +30,7 @@
             this.eventTimer = new System.Windows.Forms.Timer(this.components);
             this.cooldownDisableTimer = new System.Windows.Forms.Timer(this.components);
             this.btnLaunch = new System.Windows.Forms.Button();
+            this.lblConsecutiveWins = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericStake)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSpeed)).BeginInit();
@@ -39,7 +40,7 @@
             // btnCoolDown
             // 
             this.btnCoolDown.Location = new System.Drawing.Point(153, 54);
-            this.btnCoolDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCoolDown.Margin = new System.Windows.Forms.Padding(2);
             this.btnCoolDown.Name = "btnCoolDown";
             this.btnCoolDown.Size = new System.Drawing.Size(136, 19);
             this.btnCoolDown.TabIndex = 3;
@@ -79,7 +80,7 @@
             // numericStake
             // 
             this.numericStake.Location = new System.Drawing.Point(422, 242);
-            this.numericStake.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericStake.Margin = new System.Windows.Forms.Padding(2);
             this.numericStake.Name = "numericStake";
             this.numericStake.Size = new System.Drawing.Size(90, 20);
             this.numericStake.TabIndex = 8;
@@ -87,7 +88,7 @@
             // trackEnergy
             // 
             this.trackEnergy.Location = new System.Drawing.Point(404, 85);
-            this.trackEnergy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trackEnergy.Margin = new System.Windows.Forms.Padding(2);
             this.trackEnergy.Name = "trackEnergy";
             this.trackEnergy.Size = new System.Drawing.Size(78, 45);
             this.trackEnergy.TabIndex = 9;
@@ -95,7 +96,7 @@
             // trackSpeed
             // 
             this.trackSpeed.Location = new System.Drawing.Point(741, 134);
-            this.trackSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trackSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.trackSpeed.Name = "trackSpeed";
             this.trackSpeed.Size = new System.Drawing.Size(78, 45);
             this.trackSpeed.TabIndex = 10;
@@ -103,7 +104,7 @@
             // trackVoltage
             // 
             this.trackVoltage.Location = new System.Drawing.Point(714, 225);
-            this.trackVoltage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trackVoltage.Margin = new System.Windows.Forms.Padding(2);
             this.trackVoltage.Name = "trackVoltage";
             this.trackVoltage.Size = new System.Drawing.Size(126, 45);
             this.trackVoltage.TabIndex = 11;
@@ -111,7 +112,7 @@
             // progressTemperature
             // 
             this.progressTemperature.Location = new System.Drawing.Point(331, 321);
-            this.progressTemperature.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressTemperature.Margin = new System.Windows.Forms.Padding(2);
             this.progressTemperature.Name = "progressTemperature";
             this.progressTemperature.Size = new System.Drawing.Size(92, 18);
             this.progressTemperature.TabIndex = 12;
@@ -119,7 +120,7 @@
             // btnRunReaction
             // 
             this.btnRunReaction.Location = new System.Drawing.Point(281, 146);
-            this.btnRunReaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRunReaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnRunReaction.Name = "btnRunReaction";
             this.btnRunReaction.Size = new System.Drawing.Size(56, 19);
             this.btnRunReaction.TabIndex = 13;
@@ -130,7 +131,7 @@
             // 
             this.listActiveEffects.FormattingEnabled = true;
             this.listActiveEffects.Location = new System.Drawing.Point(638, 325);
-            this.listActiveEffects.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listActiveEffects.Margin = new System.Windows.Forms.Padding(2);
             this.listActiveEffects.Name = "listActiveEffects";
             this.listActiveEffects.Size = new System.Drawing.Size(151, 82);
             this.listActiveEffects.TabIndex = 15;
@@ -140,7 +141,6 @@
             this.eventTimer.Enabled = true;
             this.eventTimer.Interval = 1000;
             this.eventTimer.Tick += new System.EventHandler(this.EventTimer_Tick);
-
             // 
             // cooldownDisableTimer
             // 
@@ -160,11 +160,21 @@
             this.btnLaunch.UseVisualStyleBackColor = false;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
+            // lblConsecutiveWins
+            // 
+            this.lblConsecutiveWins.AutoSize = true;
+            this.lblConsecutiveWins.Location = new System.Drawing.Point(360, 394);
+            this.lblConsecutiveWins.Name = "lblConsecutiveWins";
+            this.lblConsecutiveWins.Size = new System.Drawing.Size(109, 13);
+            this.lblConsecutiveWins.TabIndex = 17;
+            this.lblConsecutiveWins.Text = "Победы подряд: 0/3";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 544);
+            this.Controls.Add(this.lblConsecutiveWins);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.listActiveEffects);
             this.Controls.Add(this.labelTemperature);
@@ -177,7 +187,7 @@
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.labelBalance);
             this.Controls.Add(this.btnCoolDown);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -206,5 +216,6 @@
         private System.Windows.Forms.Timer eventTimer;
         private System.Windows.Forms.Timer cooldownDisableTimer;
         private System.Windows.Forms.Button btnLaunch;
+        private System.Windows.Forms.Label lblConsecutiveWins;
     }
 }

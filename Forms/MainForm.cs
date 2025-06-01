@@ -182,6 +182,18 @@ namespace my_game.Forms
                 listActiveEffects.Items.Add("×2 следующий выигрыш");
             if (_passiveCoolingActive)
                 listActiveEffects.Items.Add("Пассивное охлаждение");
+            lblConsecutiveWins.Text = $"Победы подряд: {_state.ConsecutiveWins}/3";
+
+            listActiveEffects.Items.Clear();
+
+            if (_state.DoubleWinNextLaunch)
+                listActiveEffects.Items.Add("✅ Бонус: x2 к следующему выигрышу");
+            if (_state.PassiveCoolingActive)
+                listActiveEffects.Items.Add("❄️ Пассивное охлаждение активно");
+            if (_state.OverheatProtection)
+                listActiveEffects.Items.Add("🛡️ Защита от перегрева");
+
+
         }
 
         private void btnRunReaction_Click(object sender, EventArgs e)
@@ -286,7 +298,10 @@ namespace my_game.Forms
             // Game Logic
             _state.OverheatCount++;
             _state.Balance -= (int)numericStake.Value;
-            _winStreak = 0;
+
+            _state.ConsecutiveWins = 0;            // сброс победной серии
+            _state.DoubleWinNextLaunch = false;    // сброс бонуса
+
             _launchesWithoutOverheat = 0;
 
             // Reset Passive Cooling
@@ -297,28 +312,39 @@ namespace my_game.Forms
             ShowWarning($"ПЕРЕГРЕВ! -{numericStake.Value} фишек");
         }
 
+
         private void HandleSuccess()
         {
             // Calculate Winnings
-            double winAmount = (int)numericStake.Value * (_doubleWinNextLaunch ? 2 : 1);
-            _state.Balance += (int)winAmount;
+            int stake = (int)numericStake.Value;
+            int winAmount = stake * (_state.DoubleWinNextLaunch ? 2 : 1);
+            _state.Balance += winAmount;
 
             // Visual Effects
             FlashControl(progressTemperature, Color.Green, 1);
 
             // Update Stats
-            _winStreak++;
+            _state.ConsecutiveWins++;
             _launchesWithoutOverheat++;
 
-            // Check Bonuses
-            if (_winStreak >= 3)
+            // Check Bonus Trigger
+            if (_state.ConsecutiveWins == 3)
             {
-                _doubleWinNextLaunch = true;
+                _state.DoubleWinNextLaunch = true;
                 ShowBonus("Бонус: x2 на следующий запуск!");
+            }
+            else if (_state.ConsecutiveWins > 3)
+            {
+                _state.ConsecutiveWins = 3; // чтобы не превышать 3
+            }
+            else
+            {
+                _state.DoubleWinNextLaunch = false;
             }
 
             ShowWarning($"УСПЕХ! +{winAmount} фишек");
         }
+
 
         private double CalculateTemperature()
         {
@@ -514,5 +540,6 @@ namespace my_game.Forms
 
             UpdateUI();
         }
+
     }
 }
