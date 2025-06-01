@@ -60,6 +60,12 @@ namespace my_game.Engine
 
             return new ReactionResult(outcome, winnings, newTemp, msg);
         }
+
+        public void CoolDown(GameState state, int amount)
+        {
+            state.Temperature = Math.Max(0, state.Temperature - amount);
+        }
+
     }
 
 }

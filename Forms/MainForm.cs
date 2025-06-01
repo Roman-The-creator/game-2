@@ -3,6 +3,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using my_game.Models;
 using my_game.Engine;
+using System.Threading.Tasks;
+
+
 
 namespace my_game.Forms
 {
@@ -42,9 +45,20 @@ namespace my_game.Forms
         private Label _lblEnergyStatus;
         private Label _lblBonusStatus;
 
+        private int secondsUntilNextEvent = 0;
+        private bool passiveCoolingUnlocked = false;
+        private int temperature = 0;
+
+        private readonly Timer _noOverheatTimer = new Timer();
+        private readonly Timer _passiveCoolingTick = new Timer();
+
+
         public MainForm()
         {
             InitializeComponent();
+            _blinkTimer = new Timer { Interval = 200 };
+            _blinkTimer.Tick += BlinkTimer_Tick;
+
 
             // Инициализация таймеров (только здесь можно присвоить значения readonly полям)
             _passiveCoolingTimer = new Timer { Interval = 1000 };
@@ -66,6 +80,13 @@ namespace my_game.Forms
             _passiveCoolingTimer.Start();
             _blinkTimer.Start();
             _gameTimer.Start();
+            _noOverheatTimer.Interval = 1000;
+            _noOverheatTimer.Tick += NoOverheatTimer_Tick;
+            _noOverheatTimer.Start();
+
+            _passiveCoolingTick.Interval = 3000;
+            _passiveCoolingTick.Tick += PassiveCoolingTick_Tick;
+
             _eventTimer.Start();
 
             InitializeCustomComponents();
@@ -113,6 +134,15 @@ namespace my_game.Forms
             _secondsUntilNextEvent = _random.Next(30, 61);
             _state.CurrentEnergy = 50;
             _remainingTime = _gameDuration;
+        }
+
+        private void UpdateTemperatureDisplay()
+        {
+            if (labelTemperature != null)
+                labelTemperature.Text = $"Температура: {_temperature}";
+
+            if (progressTemperature != null)
+                progressTemperature.Value = Math.Min(100, Math.Max(0, _temperature));
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -204,6 +234,17 @@ namespace my_game.Forms
                 trackEnergy.Value,
                 trackSpeed.Value,
                 trackVoltage.Value);
+            if (result.Outcome == "overheat")
+            {
+                _blinkTimer.Start();
+
+                Task.Delay(2000).ContinueWith(_ => Invoke(new Action(() =>
+                {
+                    _blinkTimer.Stop();
+                    this.BackColor = SystemColors.Control;
+                })));
+            }
+
 
             if (result.IsWin)
             {
@@ -406,14 +447,22 @@ namespace my_game.Forms
             if (_temperature >= 90)
             {
                 _isBlinkVisible = !_isBlinkVisible;
+
+                // Мигание текста
                 labelResult.ForeColor = _isBlinkVisible ? Color.Red : Color.Black;
+
+                // Мигание фона
+                this.BackColor = _isBlinkVisible ? Color.Red : SystemColors.Control;
             }
             else
             {
+                // Сброс состояния
                 labelResult.ForeColor = Color.Black;
+                this.BackColor = SystemColors.Control;
                 _isBlinkVisible = true;
             }
         }
+
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
@@ -540,6 +589,60 @@ namespace my_game.Forms
 
             UpdateUI();
         }
+
+        private void eventTimer_Tick(object sender, EventArgs e)
+        {
+            secondsUntilNextEvent--;
+
+            if (secondsUntilNextEvent <= 0)
+            {
+                TriggerRandomEvent();
+                secondsUntilNextEvent = _random.Next(30, 61);
+            }
+
+            if (passiveCoolingUnlocked && temperature > 0)
+            {
+                temperature = Math.Max(0, temperature - 1);
+            }
+        }
+
+        private void cooldownDisableTimer_Tick_1(object sender, EventArgs e)
+        {
+            btnCoolDown.Enabled = true;
+            cooldownDisableTimer.Stop();
+        }
+
+        private void NoOverheatTimer_Tick(object sender, EventArgs e)
+        {
+            if (_temperature <= 100)
+            {
+                _secondsWithoutOverheat++;
+                if (_secondsWithoutOverheat == 120 && !_passiveCoolingActive)
+                {
+                    _passiveCoolingActive = true;
+                    _passiveCoolingTick.Start();
+                    listActiveEffects.Items.Add("Пассивное охлаждение активировано");
+
+                }
+            }
+            else
+            {
+                _secondsWithoutOverheat = 0;
+                _passiveCoolingTick.Stop();
+                listActiveEffects.Items.Remove("Пассивное охлаждение активировано");
+
+                _passiveCoolingActive = false;
+            }
+        }
+
+        private void PassiveCoolingTick_Tick(object sender, EventArgs e)
+        {
+            _engine.CoolDown(_state, 1);
+            _temperature = _state.Temperature;
+            UpdateTemperatureDisplay(); // убедись, что этот метод есть
+        }
+
+        
 
     }
 }
