@@ -76,3 +76,13 @@ C:\Users\sukhi\OneDrive\Desktop\game\obj\Debug\my-game.csproj.GenerateResource.c
 C:\Users\sukhi\OneDrive\Desktop\game\obj\Debug\my-game.csproj.CoreCompileInputs.cache
 C:\Users\sukhi\OneDrive\Desktop\game\obj\Debug\my-game.exe
 C:\Users\sukhi\OneDrive\Desktop\game\obj\Debug\my-game.pdb
+C:\Users\Ярослав\Source\Repos\game-2-\bin\Debug\my-game.exe.config
+C:\Users\Ярослав\Source\Repos\game-2-\bin\Debug\my-game.exe
+C:\Users\Ярослав\Source\Repos\game-2-\bin\Debug\my-game.pdb
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my-game.csproj.AssemblyReference.cache
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my_game.Forms.MainForm.resources
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my_game.ResultForm.resources
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my-game.csproj.GenerateResource.cache
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my-game.csproj.CoreCompileInputs.cache
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my-game.exe
+C:\Users\Ярослав\Source\Repos\game-2-\obj\Debug\my-game.pdb

@@ -477,7 +477,6 @@ namespace my_game.Forms
                 MessageBox.Show("Время вышло! Игра завершена.", "Итоги",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                btnRunReaction.Enabled = false;
                 btnCoolDown.Enabled = false;
 
                 ShowResult();
@@ -641,8 +640,5 @@ namespace my_game.Forms
             _temperature = _state.Temperature;
             UpdateTemperatureDisplay(); // убедись, что этот метод есть
         }
-
-        
-
     }
 }
