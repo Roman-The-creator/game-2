@@ -52,6 +52,9 @@ namespace my_game.Forms
         private readonly Timer _noOverheatTimer = new Timer();
         private readonly Timer _passiveCoolingTick = new Timer();
 
+        private int reactorTemperature = 0;
+        private bool doubleWinNextLaunch = false;
+
 
         public MainForm()
         {
@@ -512,37 +515,36 @@ namespace my_game.Forms
             }
         }
 
+        private Random random = new Random();
+
+        private void trackVoltage_Scroll(object sender, EventArgs e)
+        {
+            // Пока пусто. Главное — чтобы существовал.
+        }
+
+
         private void TriggerRandomEvent()
         {
-            switch (_random.Next(0, 4))
-            {
-                case 0:
-                    _temperature += 20;
-                    MessageBox.Show("⚠️ Внезапный перегрев! Температура +20%", "Событие");
-                    break;
-                case 1:
-                    _temperature = Math.Max(0, _temperature - 20);
-                    MessageBox.Show("❄️ Система охладилась автоматически! -20% температуры", "Событие");
-                    break;
-                case 2:
-                    _doubleWinNextLaunch = true;
-                    MessageBox.Show("🎁 Следующий запуск принесёт удвоенный выигрыш!", "Событие");
-                    break;
-                case 3:
-                    btnCoolDown.Enabled = false;
-                    MessageBox.Show("🧊 Кнопка охлаждения отключена на 30 секунд!", "Событие");
+            if (DateTime.Now - lastEventTime < TimeSpan.FromSeconds(10))
+                return;
 
-                    Timer cooldownTimer = new Timer { Interval = 30000 };
-                    cooldownTimer.Tick += (s, e) =>
-                    {
-                        btnCoolDown.Enabled = true;
-                        cooldownTimer.Stop();
-                        cooldownTimer.Dispose();
-                    };
-                    cooldownTimer.Start();
-                    break;
+            lastEventTime = DateTime.Now;
+
+            int roll = random.Next(0, 100);
+
+            if (roll < 10)
+            {
+                reactorTemperature = (int)(reactorTemperature * 0.8);
+                lstLog.Items.Insert(0, "☃ Автоохлаждение: −20% температуры");
+            }
+            else if (roll < 20)
+            {
+                doubleWinNextLaunch = true;
+                lstLog.Items.Insert(0, "🎁 Бонус: x2 к следующей победе!");
             }
         }
+
+
 
         private void PassiveCoolingTimer_Tick(object sender, EventArgs e)
         {
