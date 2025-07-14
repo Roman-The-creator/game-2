@@ -11,6 +11,8 @@ namespace my_game.Forms
 {
     public partial class MainForm : Form
     {
+        private readonly Timer _labelBlinkTimer = new Timer();
+        private bool _isLabelVisible = true;
         // Game State
         private readonly GameState _state = new GameState();
         private readonly ReactorEngine _engine = new ReactorEngine();
@@ -55,6 +57,8 @@ namespace my_game.Forms
         private int reactorTemperature = 0;
         private bool doubleWinNextLaunch = false;
 
+        private Timer blinkTimer;
+        private bool isBlinking = false;
 
         public MainForm()
         {
@@ -158,7 +162,7 @@ namespace my_game.Forms
             trackSpeed.Minimum = 0;
             trackSpeed.Maximum = 100;
             trackSpeed.Value = 50;
-
+            
             trackVoltage.Minimum = 0;
             trackVoltage.Maximum = 100;
             trackVoltage.Value = 50;
@@ -172,7 +176,19 @@ namespace my_game.Forms
             progressTemperature.Minimum = 0;
             progressTemperature.Maximum = 100;
 
+            blinkTimer = new Timer();
+            blinkTimer.Interval = 500;
+            blinkTimer.Tick += BlinkTimer_Tick;
+
+            _labelBlinkTimer.Interval = 500; // полсекунды
+            _labelBlinkTimer.Tick += LabelBlinkTimer_Tick;
+
             UpdateUI();
+        }
+        private void LabelBlinkTimer_Tick(object sender, EventArgs e)
+        {
+            lblUrgencyFlash.Visible = _isLabelVisible;
+            _isLabelVisible = !_isLabelVisible;
         }
 
         private void UpdateUI()
@@ -467,24 +483,57 @@ namespace my_game.Forms
         }
 
 
+        private bool _isFlashingTitle = false;
+
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
-            this.Text = $"Fortune Reactor — осталось: {_remainingTime:mm\\:ss}";
+            if (_remainingTime <= TimeSpan.FromSeconds(60) && _remainingTime > TimeSpan.Zero)
+            {
+                if (!_labelBlinkTimer.Enabled)
+                {
+                    lblUrgencyFlash.Visible = true;
+                    _labelBlinkTimer.Start();
+                }
+            }
+
+            if (_remainingTime <= TimeSpan.FromSeconds(60) && _remainingTime > TimeSpan.Zero)
+            {
+                // Переключаем текст заголовка
+                if (_isFlashingTitle)
+                {
+                    this.Text = $"Fortune Reactor — осталось: {_remainingTime:mm\\:ss}";
+                }
+                else
+                {
+                    this.Text = $"⚠ Осталось {_remainingTime.Seconds} сек!";
+                }
+                _isFlashingTitle = !_isFlashingTitle;
+            }
+            else
+            {
+                // Нормальное отображение, без мигания
+                this.Text = $"Fortune Reactor — осталось: {_remainingTime:mm\\:ss}";
+            }
 
             if (_remainingTime <= TimeSpan.Zero)
             {
                 _gameTimer.Stop();
                 _blinkTimer.Stop();
+                _isFlashingTitle = false;
+                this.Text = "Fortune Reactor — Игра завершена";
 
                 MessageBox.Show("Время вышло! Игра завершена.", "Итоги",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 btnCoolDown.Enabled = false;
+                lblUrgencyFlash.Visible = false;
+                _labelBlinkTimer.Stop();
 
                 ShowResult();
             }
         }
+
 
         private void ShowResult()
         {
@@ -641,6 +690,16 @@ namespace my_game.Forms
             _engine.CoolDown(_state, 1);
             _temperature = _state.Temperature;
             UpdateTemperatureDisplay(); // убедись, что этот метод есть
+        }
+
+        private void trackEnergy_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackSpeed_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }

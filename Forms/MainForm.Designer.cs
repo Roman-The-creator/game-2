@@ -45,6 +45,7 @@ namespace my_game.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lstLog = new System.Windows.Forms.ListBox();
+            this.lblUrgencyFlash = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericStake)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSpeed)).BeginInit();
@@ -91,31 +92,50 @@ namespace my_game.Forms
             // 
             // numericStake
             // 
+            this.numericStake.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numericStake.Location = new System.Drawing.Point(97, 276);
             this.numericStake.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericStake.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericStake.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericStake.Name = "numericStake";
-            this.numericStake.Size = new System.Drawing.Size(120, 22);
+            this.numericStake.Size = new System.Drawing.Size(120, 31);
             this.numericStake.TabIndex = 8;
+            this.numericStake.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericStake.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // trackEnergy
             // 
-            this.trackEnergy.Location = new System.Drawing.Point(377, 117);
+            this.trackEnergy.Location = new System.Drawing.Point(489, 117);
             this.trackEnergy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackEnergy.Name = "trackEnergy";
             this.trackEnergy.Size = new System.Drawing.Size(104, 56);
             this.trackEnergy.TabIndex = 9;
+            this.trackEnergy.Scroll += new System.EventHandler(this.trackEnergy_Scroll);
             // 
             // trackSpeed
             // 
-            this.trackSpeed.Location = new System.Drawing.Point(669, 117);
+            this.trackSpeed.Location = new System.Drawing.Point(668, 117);
             this.trackSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackSpeed.Name = "trackSpeed";
             this.trackSpeed.Size = new System.Drawing.Size(104, 56);
             this.trackSpeed.TabIndex = 10;
+            this.trackSpeed.Scroll += new System.EventHandler(this.trackSpeed_Scroll);
             // 
             // trackVoltage
             // 
-            this.trackVoltage.Location = new System.Drawing.Point(1001, 117);
+            this.trackVoltage.Location = new System.Drawing.Point(822, 117);
             this.trackVoltage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackVoltage.Name = "trackVoltage";
             this.trackVoltage.Size = new System.Drawing.Size(168, 56);
@@ -190,30 +210,34 @@ namespace my_game.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(389, 78);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(502, 78);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 18;
             this.label1.Text = "Энергия";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(684, 78);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(676, 78);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(88, 23);
             this.label2.TabIndex = 19;
             this.label2.Text = "Скорость";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1041, 78);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(848, 83);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 16);
+            this.label3.Size = new System.Drawing.Size(116, 23);
             this.label3.TabIndex = 20;
             this.label3.Text = "Напряжение";
             // 
@@ -231,10 +255,12 @@ namespace my_game.Forms
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label5.Location = new System.Drawing.Point(93, 239);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 16);
+            this.label5.Size = new System.Drawing.Size(129, 25);
             this.label5.TabIndex = 22;
             this.label5.Text = "Сумма ставки:";
             // 
@@ -248,11 +274,24 @@ namespace my_game.Forms
             this.lstLog.Size = new System.Drawing.Size(400, 64);
             this.lstLog.TabIndex = 23;
             // 
+            // lblUrgencyFlash
+            // 
+            this.lblUrgencyFlash.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblUrgencyFlash.ForeColor = System.Drawing.Color.Red;
+            this.lblUrgencyFlash.Location = new System.Drawing.Point(624, 40);
+            this.lblUrgencyFlash.Name = "lblUrgencyFlash";
+            this.lblUrgencyFlash.Size = new System.Drawing.Size(268, 30);
+            this.lblUrgencyFlash.TabIndex = 24;
+            this.lblUrgencyFlash.Text = "⏰ Осталось мало времени!";
+            this.lblUrgencyFlash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUrgencyFlash.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 670);
+            this.Controls.Add(this.lblUrgencyFlash);
             this.Controls.Add(this.lstLog);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -273,7 +312,7 @@ namespace my_game.Forms
             this.Controls.Add(this.btnCoolDown);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Ё";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericStake)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEnergy)).EndInit();
@@ -307,6 +346,7 @@ namespace my_game.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lstLog;
+        private System.Windows.Forms.Label lblUrgencyFlash;
     }
 }
 
