@@ -311,6 +311,26 @@ namespace my_game.Forms
                 btnLaunch.Text = "ЗАПУСК РЕАКТОРА";
             }
         }
+        private void btnRecharge_Click(object sender, EventArgs e)
+        {
+            if (_state.CurrentEnergy >= 100)
+            {
+                ShowWarning("Энергия уже полная!");
+                return;
+            }
+
+            if (_state.Balance >= 5)
+            {
+                _state.Balance -= 5;
+                _state.CurrentEnergy = Math.Min(100, _state.CurrentEnergy + 30);
+                ShowWarning("Подзарядка: +30 энергии за 5 фишек");
+            }
+            else
+            {
+                ShowWarning("Недостаточно фишек для подзарядки!");
+            }
+            UpdateUI();
+        }
 
         private void LaunchReactorCore()
         {
@@ -322,6 +342,9 @@ namespace my_game.Forms
                     ShowWarning("Недостаточно энергии!");
                     return;
                 }
+
+                // ✅ Увеличим общее число запусков
+                _state.TotalLaunches++;
 
                 // Energy Consumption
                 _state.CurrentEnergy -= 10;
@@ -335,11 +358,20 @@ namespace my_game.Forms
                 {
                     HandleOverheat();
                     _isOverheated = true;
+
+                    // ✅ Если перегрелся
+                    _state.TotalOverheats++;
+                    _state.WinLoss -= (int)numericStake.Value;
                 }
                 else
                 {
                     HandleSuccess();
                     _isOverheated = false;
+
+                    // ✅ Выигрыш
+                    int stake = (int)numericStake.Value;
+                    int winAmount = stake * (_state.DoubleWinNextLaunch ? 2 : 1);
+                    _state.WinLoss += winAmount;
                 }
 
                 UpdateUI();

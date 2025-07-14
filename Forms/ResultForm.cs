@@ -16,7 +16,7 @@ namespace my_game
         {
             InitializeComponent();
         }
-
+        
         public ResultForm(int balance, int launches, int overheats, int winLoss)
         {
             InitializeComponent();
