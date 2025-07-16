@@ -60,6 +60,7 @@ namespace my_game.Forms
         private Timer blinkTimer;
         private bool isBlinking = false;
 
+
         public MainForm()
         {
             InitializeComponent();
@@ -245,6 +246,7 @@ namespace my_game.Forms
 
         }
 
+
         private void btnRunReaction_Click(object sender, EventArgs e)
         {
             var result = _engine.RunReaction(
@@ -296,19 +298,20 @@ namespace my_game.Forms
             UpdateUI();
         }
 
-        private void btnLaunch_Click(object sender, EventArgs e)
+        private async void btnLaunch_Click(object sender, EventArgs e)
         {
             btnLaunch.Enabled = false;
             btnLaunch.Text = "ЗАПУСК...";
 
             try
             {
+                await Task.Delay(1000); // кнопка "зависает" на 1 сек
                 LaunchReactorCore();
             }
             finally
             {
                 btnLaunch.Enabled = true;
-                btnLaunch.Text = "ЗАПУСК РЕАКТОРА";
+                btnLaunch.Text = "\"ЗАПУСК РЕАКТОРА\"";
             }
         }
         private void btnRecharge_Click(object sender, EventArgs e)
@@ -332,55 +335,50 @@ namespace my_game.Forms
             UpdateUI();
         }
 
-        private void LaunchReactorCore()
+        private async Task LaunchReactorCore()
         {
             try
             {
-                // Energy Check
+                btnLaunch.Enabled = false;
+                btnLaunch.BackColor = Color.Gray;
+
                 if (_state.CurrentEnergy < 15)
                 {
                     ShowWarning("Недостаточно энергии!");
                     return;
                 }
 
-                // ✅ Увеличим общее число запусков
-                _state.TotalLaunches++;
-
-                // Energy Consumption
                 _state.CurrentEnergy -= 10;
-
-                // Temperature Calculation
                 double tempIncrease = CalculateTemperature();
                 _temperature = (int)Math.Min(100, _temperature + tempIncrease);
 
-                // Overheat Check
                 if (_temperature > 100)
                 {
                     HandleOverheat();
                     _isOverheated = true;
-
-                    // ✅ Если перегрелся
-                    _state.TotalOverheats++;
-                    _state.WinLoss -= (int)numericStake.Value;
                 }
                 else
                 {
                     HandleSuccess();
                     _isOverheated = false;
-
-                    // ✅ Выигрыш
-                    int stake = (int)numericStake.Value;
-                    int winAmount = stake * (_state.DoubleWinNextLaunch ? 2 : 1);
-                    _state.WinLoss += winAmount;
                 }
 
                 UpdateUI();
+
+                await Task.Delay(1000); // задержка для защиты от спама
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
+            finally
+            {
+                btnLaunch.Enabled = true;
+                btnLaunch.BackColor = Color.LightGreen;
+            }
         }
+
+
 
         private void HandleOverheat()
         {
@@ -407,19 +405,15 @@ namespace my_game.Forms
 
         private void HandleSuccess()
         {
-            // Calculate Winnings
             int stake = (int)numericStake.Value;
             int winAmount = stake * (_state.DoubleWinNextLaunch ? 2 : 1);
             _state.Balance += winAmount;
 
-            // Visual Effects
-            FlashControl(progressTemperature, Color.Green, 1);
+            FlashControl(progressTemperature, Color.LightGreen, 1); // 👍 вспышка зелёным
 
-            // Update Stats
             _state.ConsecutiveWins++;
             _launchesWithoutOverheat++;
 
-            // Check Bonus Trigger
             if (_state.ConsecutiveWins == 3)
             {
                 _state.DoubleWinNextLaunch = true;
@@ -427,7 +421,7 @@ namespace my_game.Forms
             }
             else if (_state.ConsecutiveWins > 3)
             {
-                _state.ConsecutiveWins = 3; // чтобы не превышать 3
+                _state.ConsecutiveWins = 3;
             }
             else
             {
@@ -436,7 +430,6 @@ namespace my_game.Forms
 
             ShowWarning($"УСПЕХ! +{winAmount} фишек");
         }
-
 
         private double CalculateTemperature()
         {
@@ -450,11 +443,11 @@ namespace my_game.Forms
         private void FlashControl(Control control, Color flashColor, int flashes)
         {
             Color original = control.BackColor;
-
             Timer flashTimer = new Timer { Interval = 200 };
-            int count = 0;
 
-            flashTimer.Tick += (s, e) => {
+            int count = 0;
+            flashTimer.Tick += (s, e) =>
+            {
                 control.BackColor = count % 2 == 0 ? flashColor : original;
                 if (++count >= flashes * 2)
                 {
@@ -462,7 +455,6 @@ namespace my_game.Forms
                     flashTimer.Stop();
                 }
             };
-
             flashTimer.Start();
         }
 
